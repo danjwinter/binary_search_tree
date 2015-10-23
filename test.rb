@@ -2,7 +2,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
-require_relative 'dst'
+require_relative 'bst'
 
 
 class BSTTest < Minitest::Test

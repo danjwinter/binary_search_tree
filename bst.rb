@@ -11,17 +11,20 @@ class Node
   end
 
   def push
+
     binding.pry
-    if data < @bst.root.data
+
+    if data < root.left.data
       if left == nil
         node = left
-      else node.push
+      else
+        push
       end
-    elsif data > @bst.root.data
+    elsif data > root.right.data
       if right == nil
         node = right
       else
-        node.push
+        push
       end
     else
       return
@@ -42,6 +45,7 @@ attr_accessor :root
     if root.nil?
       @root = node
     else
+      binding.pry
       node.push
     end
   end
