@@ -2,29 +2,27 @@ require 'pry'
 
 class Node
   attr_reader :data
-  attr_accessor :left, :right
+  # attr_accessor :left, :right
+  attr_reader :left, :right
 
   def initialize(data)
     @data = data
-    @left = nil
-    @right = nil
+    # @left = nil
+    # @right = nil
   end
 
-  def push
-
-    binding.pry
-
-    if data < root.left.data
+  def push(node)
+    if data > node.data
       if left == nil
-        node = left
+        @left = node
       else
-        push
+        left.push(node)
       end
-    elsif data > root.right.data
+    elsif data < node.data
       if right == nil
-        node = right
+        @right = node
       else
-        push
+        right.push(node)
       end
     else
       return
@@ -44,9 +42,7 @@ attr_accessor :root
     node = Node.new(data)
     if root.nil?
       @root = node
-    else
-      binding.pry
-      node.push
+      root.push(node)
     end
   end
 end
