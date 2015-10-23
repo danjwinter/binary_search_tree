@@ -63,8 +63,11 @@ class BSTTest < Minitest::Test
     assert_equal 12, @bst.root.right.left.data
   end
 
-  # def test_it_can_detect_if_values_are_included
-  #   @bst.push(7)
-  #   assert @bst.include?(7)
-  # end
+  def test_it_can_detect_if_root_value_is_included
+    assert @bst.include?(10)
+  end
+
+  def test_it_can_detect_if_other_values_at_one_level_are_included
+
+  end
 end

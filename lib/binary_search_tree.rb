@@ -47,9 +47,10 @@ attr_accessor :root
       root.push(node)
     end
   end
-  #
-  # def include?
-  #   binding.pry
-  #   if root.data == 7
-  # end
+
+  def include?(data)
+    if self.root.data == data
+      return true
+    end
+  end
 end
