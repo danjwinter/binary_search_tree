@@ -1,3 +1,5 @@
+require 'pry'
+
 class Node
   attr_reader :data
   attr_accessor :left, :right
@@ -9,10 +11,22 @@ class Node
   end
 
   def push
-    if 
-
+    binding.pry
+    if data < @bst.root.data
+      if left == nil
+        node = left
+      else node.push
+      end
+    elsif data > @bst.root.data
+      if right == nil
+        node = right
+      else
+        node.push
+      end
+    else
+      return
+    end
   end
-
 end
 
 
