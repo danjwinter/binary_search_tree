@@ -8,9 +8,10 @@ require './lib/binary_search_tree'
 class BSTTest < Minitest::Test
 
   def setup
-    node = Node.new(10)
+    # node = Node.new(10)
     @bst = BST.new
-    @bst.root = node
+    @bst.push(10)
+    # @bst.root = node
   end
 
   def test_it_can_place_root
@@ -69,7 +70,9 @@ class BSTTest < Minitest::Test
 
   def test_it_can_detect_values_multiple_levels
     @bst.push(13)
+    @bst.push(44)
     assert @bst.include?(13)
+    assert @bst.include?(44)
   end
 
   def test_it_can_count

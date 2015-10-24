@@ -42,15 +42,33 @@ class Node
     end
   end
 
+  # def include?(value)
+  #   if self.data == value
+  #     return true
+  #   elsif !left.nil?
+  #     left.data == value
+  #   elsif !right.nil?
+  #     right.data == value
+  #   elsif
+  #     left.include?(value) || right.include?(value)
+  #   else
+  #     false
+  #   end
+  # end
+
   def include?(value)
     if self.data == value
       return true
-    elsif !left.nil?
-      left.data == value
-    elsif !right.nil?
-      right.data == value
-    elsif
-      left.include?(value) || right.include?(value)
+    elsif left
+      if @left.data == value
+        return true
+      else left.include?(value)
+      end
+    elsif right
+       if @right.data == value
+         return true
+       else right.include?(value)
+       end
     else
       false
     end
