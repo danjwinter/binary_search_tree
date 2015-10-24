@@ -67,7 +67,18 @@ class BSTTest < Minitest::Test
     assert @bst.include?(10)
   end
 
-  def test_it_can_detect_if_other_values_at_one_level_are_included
-
+  def test_it_can_detect_values_multiple_levels
+    @bst.push(13)
+    assert @bst.include?(13)
   end
+
+  def test_it_can_count
+    @bst.push(7)
+    @bst.push(13)
+    @bst.push(8)
+    @bst.push(12)
+    assert_equal 5, @bst.count
+  end
+
+
 end
