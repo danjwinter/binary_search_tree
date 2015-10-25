@@ -7,13 +7,37 @@ class Node
   end
 
   def push(node)
+    push_left(node)
+    push_right(node)
+    # if data > node.data
+    #   if left == nil
+    #     @left = node
+    #   else
+    #     left.push(node)
+    #   end
+    # elsif data < node.data
+    #   if right == nil
+    #     @right = node
+    #   else
+    #     right.push(node)
+    #   end
+    # else
+    #   return
+    # end
+  end
+
+  def push_left(node)
     if data > node.data
       if left == nil
         @left = node
       else
         left.push(node)
       end
-    elsif data < node.data
+    end
+  end
+
+  def push_right(node)
+    if data < node.data
       if right == nil
         @right = node
       else
