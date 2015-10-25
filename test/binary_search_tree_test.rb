@@ -127,4 +127,14 @@ class BSTTest < Minitest::Test
     assert_equal 4, @bst.depth_of(111)
   end
 
+  def test_it_can_sort
+    @bst.push(20)
+    @bst.push(1)
+    @bst.push(78)
+    @bst.push(54)
+    @bst.push(111)
+    @bst.push(4)
+    assert_equal [1, 4, 10, 20, 54, 78, 111], @bst.sort
+  end
+
 end

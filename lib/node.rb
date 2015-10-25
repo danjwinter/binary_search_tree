@@ -38,13 +38,13 @@ class Node
 
   def sort
     if left.nil? && right.nil?
-      "#{self.data}"
+      [self.data]
     elsif left.nil?
-    "#{self.data}" + " " + "#{right.sort}"
+      [self.data] + right.sort
     elsif right.nil?
-      "#{left.sort}" + " " + "#{self.data}"
+      left.sort + [self.data]
     else
-    "#{left.sort}" + " " + "#{self.data}" + " " + "#{right.sort}"
+      left.sort + [self.data] + right.sort
     end
   end
 
