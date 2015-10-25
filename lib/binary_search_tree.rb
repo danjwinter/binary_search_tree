@@ -3,13 +3,10 @@ require 'pry'
 
 class Node
   attr_reader :data
-  # attr_accessor :left, :right
   attr_reader :left, :right
 
   def initialize(data)
     @data = data
-    # @left = nil
-    # @right = nil
   end
 
   def push(node)
@@ -71,44 +68,19 @@ class Node
   end
 
   def depth_of(value, counter=0)
-    binding.pry
-    if self.data == value
-      return counter
-    unless food.empty?
-      food.map do |side|
-        side.depth_of(value, counter += 1)
-      end
-    end
-    end
-    counter
-  end
-
-  def food
-    arr = []
-    if left
-      arr << self.left
-    elsif right
-      arr << self.right
-    end
-    arr
-  end
-
-
-
-    def depth?(value, counter=0)
-      if self.include?(value) == false
-        return false
-      else
-        counter += 1
-       if self.data == value
-         return counter
-       elsif self.data > value
-         left.depth?(value, counter)
-       elsif self.data < value
-        right.depth?(value, counter)
-       end
+    if self.include?(value) == false
+      return false
+    else
+      counter += 1
+     if self.data == value
+       return counter
+     elsif self.data > value
+       left.depth_of(value, counter)
+     elsif self.data < value
+      right.depth_of(value, counter)
      end
-    end
+   end
+  end
 
 
   def include?(value)
@@ -185,7 +157,7 @@ attr_accessor :root
     if root.nil?
       return nil
     else
-      root.depth?(value)
+      root.depth_of(value)
     end
   end
 end
