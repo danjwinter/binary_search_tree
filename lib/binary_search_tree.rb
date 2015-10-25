@@ -42,38 +42,6 @@ class Node
     end
   end
 
-  # def include?(value)
-  #   if self.data == value
-  #     return true
-  #   elsif !left.nil?
-  #     left.data == value
-  #   elsif !right.nil?
-  #     right.data == value
-  #   elsif
-  #     left.include?(value) || right.include?(value)
-  #   else
-  #     false
-  #   end
-  # end
-
-  def include?(value)
-    if self.data == value
-      return true
-    elsif left
-      if @left.data == value
-        return true
-      else left.include?(value)
-      end
-    elsif right
-       if @right.data == value
-         return true
-       else right.include?(value)
-       end
-    else
-      false
-    end
-  end
-
   def sort
     if left.nil? && right.nil?
       "#{self.data}"
@@ -86,6 +54,74 @@ class Node
     end
   end
 
+  def max
+    if right.nil?
+      return self.data
+    else
+      right.max
+    end
+  end
+
+  def min
+    if left.nil?
+      return self.data
+    else
+      left.min
+    end
+  end
+
+  def depth_of(value, counter=0)
+    binding.pry
+    if self.data == value
+      return counter
+    unless food.empty?
+      food.map do |side|
+        side.depth_of(value, counter += 1)
+      end
+    end
+    end
+    counter
+  end
+
+  def food
+    arr = []
+    if left
+      arr << self.left
+    elsif right
+      arr << self.right
+    end
+    arr
+  end
+
+
+
+    def depth?(value, counter=0)
+      if self.include?(value) == false
+        return false
+      else
+        counter += 1
+       if self.data == value
+         return counter
+       elsif self.data > value
+         left.depth?(value, counter)
+       elsif self.data < value
+        right.depth?(value, counter)
+       end
+     end
+    end
+
+
+  def include?(value)
+   if self.data == value
+     return true
+   elsif self.data > value
+     left.include?(value)
+   elsif self.data < value
+    right.include?(value)
+   else
+      false
+   end
+  end
 end
 
 
@@ -126,6 +162,30 @@ attr_accessor :root
       nil
     else
       root.sort
+    end
+  end
+
+  def max
+    if root.nil?
+      return nil
+    else
+      root.max
+    end
+  end
+
+  def min
+    if root.nil?
+      return nil
+    else
+      root.min
+    end
+  end
+
+  def depth_of(value)
+    if root.nil?
+      return nil
+    else
+      root.depth?(value)
     end
   end
 end
