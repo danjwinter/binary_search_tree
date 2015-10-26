@@ -75,9 +75,9 @@ attr_accessor :root
 
   def detect_number_or_string_and_push(item)
     if item[0] >= "0" && item[0] <= "9"
-      self.push(item.to_i)
+      self.push(item.to_f)
     elsif item[1] >= "0" && item[1] <= "9"
-      self.push(item.to_i)
+      self.push(item.to_f)
     else
       self.push(item)
     end
