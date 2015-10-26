@@ -1,0 +1,10 @@
+platypus
+duck
+cat
+zebra
+narwhal
+turtle
+goose
+lion
+tiger
+bear
