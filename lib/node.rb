@@ -9,21 +9,6 @@ class Node
   def push(node)
     push_left(node)
     push_right(node)
-    # if data > node.data
-    #   if left == nil
-    #     @left = node
-    #   else
-    #     left.push(node)
-    #   end
-    # elsif data < node.data
-    #   if right == nil
-    #     @right = node
-    #   else
-    #     right.push(node)
-    #   end
-    # else
-    #   return
-    # end
   end
 
   def push_left(node)
@@ -102,7 +87,6 @@ class Node
      end
    end
   end
-
 
   def include?(value)
    if self.data == value
